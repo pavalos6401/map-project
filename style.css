@@ -1,0 +1,35 @@
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+select{
+  margin-top: 10px;
+  margin-left: 35px;
+  width: auto;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 5px;
+}
+option{
+  color: black;
+  background: #A6E1EC;
+  line-height: 20px;
+} 
+
+select:focus{
+  box-shadow: 0 0 15px 1px #DDDDDD;
+}
+option:hover{
+  background: #EBCCD1;
+}

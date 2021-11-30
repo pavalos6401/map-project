@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather in Chicago</title>
+    <script type="text/javascript" src="./index.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <h1>Weather in Chicago</h1>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <form name="range" action = "#">
+    <select onChange="rangeChanged(this.value)">
+      <option selected disabled hidden>Range Above</option>
+      <option value=25 selected>25</option>
+      <option value=20>20</option>
+      <option value=15>15</option>
+      <option value=10>10</option>
+      <option value=5>5</option>
+      <option value=0>0</option>
+      <option value=-5>-5</option>
+      <option value=-10>-10</option>
+      <option value=-15>-15</option>
+      <option value=-20>-20</option>
+      <option value=-25>-25</option>
+    </select>
+  </form>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl7_Gb0gvn_e98hFEsPg3ZA2Byc3yNWHI&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
