@@ -203,7 +203,7 @@ function rangeChanged(value) {
   map.data.loadGeoJson("./map.geojson", {}, function (features) {
     map.data.setStyle((feature) => {
       const temp = parseInt(feature.getProperty(`temp${next}`).split(" ")[2]);
-      let hue = -3.86 * temp + 154.29; //40-->0, -30-->270
+      let hue = -2.14 * temp + 222.86; //104-->0, -22-->270 
       let category = `hsl(${hue},100%,50%)`;
       if (temp >= parseInt(value)) {
         return {
