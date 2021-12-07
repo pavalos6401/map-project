@@ -9,22 +9,18 @@
     <h1>Weather in Chicago</h1>
     <!--The div element for the map -->
     <div id="map"></div>
-    <form name="range" action = "#">
-    <select onChange="rangeChanged(this.value)">
-      <option selected disabled hidden>Range Above</option>
-      <option value=25 selected>25</option>
-      <option value=20>20</option>
-      <option value=15>15</option>
-      <option value=10>10</option>
-      <option value=5>5</option>
-      <option value=0>0</option>
-      <option value=-5>-5</option>
-      <option value=-10>-10</option>
-      <option value=-15>-15</option>
-      <option value=-20>-20</option>
-      <option value=-25>-25</option>
-    </select>
-  </form>
+    <form name="range" action="#">
+      <select onChange="rangeChanged(this.value)">
+        <option selected disabled>Range Above</option>
+        <option value="27">27</option>
+        <option value="19">19</option>
+        <option value="11">11</option>
+        <option value="3">3</option>
+        <option value="-5">-5</option>
+        <option value="-13">-13</option>
+        <option value="-21">-21</option>
+      </select>
+    </form>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl7_Gb0gvn_e98hFEsPg3ZA2Byc3yNWHI&callback=initMap&libraries=&v=weekly"
