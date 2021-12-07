@@ -1,4 +1,5 @@
 let map, next, min, max;
+
 function initMap() {
   const CHICAGO_BOUNDS = {
     north: 42.03,
@@ -58,28 +59,30 @@ function initMap() {
           max = temps[l][k];
         }
       }
-      averages1[k] = sums1[k] / res.features.length;
+      averages1[k] = (sums1[k] / res.features.length).toFixed(2);
     }
     for (let m = 0; m < 20; m++) {
       for (let n = 0; n < 49; n++) {
         sums2[m] = sums2[m] + temps[m][n];
       }
-      averages2[m] = sums2[m] / 49;
+      averages2[m] = (sums2[m] / 49).toFixed(2);
     }
   }
-console.log(sums2);
 
-  console.log(averages2);
   let evt = null;
   next = 0;
   map.data.addListener("click", function (event) {
     const temperature = event.feature.getProperty(`temp${next}`);
     infowindow.setContent(
       "<div style='width:auto; font-size:large'>" +
+        "Location: "+
+        event.feature.getProperty("addr")+
+        "</br>"+
         "Temperature: " +
         temperature +
         "</br>" +
-        "Average: " + averages2[event.feature.getProperty('id')]+
+        "Average: " +
+        averages2[event.feature.getProperty("id")] +
         "</div>"
     );
     infowindow.setPosition(event.feature.getGeometry().get());
@@ -91,7 +94,7 @@ console.log(sums2);
   function refresh() {
     map.data.setStyle((feature) => {
       const temp = feature.getProperty(`temp${next}`).split(" ")[2];
-      let hue = -3.86 * temp + 154.29; //40-->0, -30-->270
+      let hue = -2.14 * temp + 222.86; //104-->0, -22-->270 
       let category = `hsl(${hue},100%,50%)`;
       return {
         icon: {
@@ -144,10 +147,14 @@ console.log(sums2);
       }
       infowindow.setContent(
         "<div style='width:auto; font-size:large'>" +
+        "Location: "+
+        evt.feature.getProperty("addr")+
+        "</br>"+
           "temperature: " +
           evt.feature.getProperty(`temp${next}`) +
           "</br>" +
-          "Average: " + averages2[evt.feature.getProperty('id')]+
+          "Average: " +
+          averages2[evt.feature.getProperty("id")] +
           "</div>"
       );
       refresh();
