@@ -131,20 +131,16 @@ function initMap() {
     controlDiv.appendChild(controlUI);
 
     // Set CSS for the control interior.
-    const controlText = document.createElement("div");
-    controlText.style.color = "rgb(25,25,25)";
-    controlText.style.fontFamily = "Roboto,Arial,sans-serif";
-    controlText.style.fontSize = "16px";
-    controlText.style.lineHeight = "38px";
-    controlText.style.paddingLeft = "5px";
-    controlText.style.paddingRight = "5px";
-    controlText.innerHTML = "Change Time";
-    controlUI.appendChild(controlText);
-    controlUI.addEventListener("click", () => {
-      next = next + 1;
-      if (next > 48) {
-        next = 0;
-      }
+    const slider = document.createElement("div", {class:"slidecontainer"});
+    slider.style.color = "rgb(25,25,25)";
+    slider.style.fontFamily = "Roboto,Arial,sans-serif";
+    slider.style.fontSize = "16px";
+    slider.style.lineHeight = "38px";
+    slider.style.paddingLeft = "5px";
+    slider.style.paddingRight = "5px";
+    slider.innerHTML = '<input type="range" min="0" max="48" value="0" class="slider" id="myRange">'
+    slider.oninput = function() {
+      next = document.getElementById("myRange").value;
       infowindow.setContent(
         "<div style='width:auto; font-size:large'>" +
         "Location: "+
@@ -158,7 +154,9 @@ function initMap() {
           "</div>"
       );
       refresh();
-    });
+    }
+
+    controlUI.appendChild(slider);
   }
 
   //set average control
