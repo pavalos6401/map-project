@@ -12,7 +12,7 @@ function initMap() {
     lng: -87.65,
   };
   map = new google.maps.Map(document.getElementById("map"), {
-    mapId: "7f2223121d65f8c0",
+    mapId: "Your MAP ID",
     zoom: 13,
     center: chicago,
     restriction: {
